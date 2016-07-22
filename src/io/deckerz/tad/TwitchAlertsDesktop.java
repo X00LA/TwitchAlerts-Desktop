@@ -1,20 +1,24 @@
 package io.deckerz.tad;
 
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 public class TwitchAlertsDesktop {
     static List<Thread> channels = new ArrayList<>();
-
+    static Class TWD = TwitchAlertsDesktop.class;
     public static void main(String[] args) {
+
         TrayIcon trayIcon = null;
         if (SystemTray.isSupported()) {
             SystemTray tray = SystemTray.getSystemTray();
-            Image image = Toolkit.getDefaultToolkit().getImage("src/images.png");
+            Image image = Toolkit.getDefaultToolkit().createImage(getImage());
             ActionListener listener = new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     exit();
@@ -48,5 +52,14 @@ public class TwitchAlertsDesktop {
         for (int i = 0; i != channels.size(); i++) {
             channels.get(i).start();
         }
+    }
+
+    static Byte[] getImage() {
+        Toolkit tk = Toolkit.getDefaultToolkit();
+        URL url = TWD.getClass().getResource("resources/images.png");
+        Image img2 = tk.createImage(url);
+        Btye[] img =
+
+        return img;
     }
 }
