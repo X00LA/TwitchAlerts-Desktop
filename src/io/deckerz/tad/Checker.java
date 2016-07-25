@@ -54,7 +54,7 @@ public class Checker implements Runnable {
                 Boolean status = isOnline();
                 if (status) {
                     if (!online) {
-                        Notify notify = new Notify(channel, channel + " is online!");
+                        Notify notify = new Notify(channel + " is online!");
                         notify.push();
                         online = true;
                     } else {
